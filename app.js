@@ -157,3 +157,46 @@ function checkNextPalindromeDate (date) {
 }
 
 console.log(checkNextPalindromeDate(date))
+
+function checkPreviousDate(date) {
+    var day = date.day - 1;
+    var month = date.month;
+    var year = date.year;
+
+    var daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+
+    if (day < 1) {
+        if (month === 3) {
+            if (isLeapYear(year)) {
+                day = 29
+                month--
+            }
+            else {
+                day = 28
+                month--
+            } 
+        } else {
+        if ([1, 2, 4, 6, 8, 9, 11, 12].includes(month)) {
+            day = 31;
+            month--;
+        }
+        else {
+            day = 30;
+            month--;
+        }
+    }
+}
+
+    if (month < 1) {
+        month = 12;
+        year--;
+    }
+
+    return {
+        day: day,
+        month: month,
+        year: year,
+    }
+}
+
+console.log(checkPreviousDate({ day: 1, month: 3, year: 2022}))
