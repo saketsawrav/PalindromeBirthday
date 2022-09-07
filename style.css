@@ -1,0 +1,60 @@
+@import url('https://v1.fontapi.ir/css/SFProDisplay:400');
+
+
+:root {
+    --amber: #ffbe0bff;
+    --orange-pantone: #fb5607ff;
+    --winter-sky: #ff006eff;
+    --blue-violet: #8338ecff;
+    --azure: #3a86ffff;
+}
+
+* {
+    font-family: 'SF Pro Display', Helvetica;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: var(--blue-violet);
+    color: aliceblue;
+}
+
+h1 {
+    text-align: center;
+    margin: 10px;
+}
+
+p {
+    text-align: center;
+    font-weight: 700;
+}
+
+button {
+    margin: 10px;
+    padding: 6px;
+}
+
+input {
+    display: block;
+    align-items: center;
+    margin: 20px;
+}
+
+#output-box {
+    border: white solid 1px;
+    padding: 5px;
+    width: 400px;
+    height: 100px;
+    margin: auto;
+    border-radius: 1rem;
+    background-color: aliceblue;
+    color: black;
+    font-weight: 500;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
