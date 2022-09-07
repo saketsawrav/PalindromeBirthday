@@ -248,8 +248,14 @@ function buttonClickHandler() {
         if (bdayPalindromeDate) {
             outputBox.innerText = "Yay! your Birthday is a Palindrome!!"
         } else {
-        var [ctr, nextBdayPalindromeDate] = checkNextPalindromeDate(date)
-        outputBox.innerText = "Sorry your Birthday is not a palindrome the next palindrome date is at " + nextBdayPalindromeDate.day + "-" + nextBdayPalindromeDate.month + "-" + nextBdayPalindromeDate.year + ", you missed it by " + ctr + " days."
+        var [nextCtr, nextBdayPalindromeDate] = checkNextPalindromeDate(date)
+        var [previousCtr, previousBdayPalindromeDate] = checkPreviousPalindromeDate(date)
+        console.log(checkNextPalindromeDate(date), checkPreviousPalindromeDate(date))
+        if (nextCtr < previousCtr) {
+        outputBox.innerText = "Sorry your Birthday is not a palindrome the nearest palindrome date is at " + nextBdayPalindromeDate.day + "-" + nextBdayPalindromeDate.month + "-" + nextBdayPalindromeDate.year + ", you missed it by " + nextCtr + " days."
+        } else {
+            outputBox.innerText = "Sorry your Birthday is not a palindrome the nearest palindrome date is at " + previousBdayPalindromeDate.day + "-" + previousBdayPalindromeDate.month + "-" + previousBdayPalindromeDate.year + ", you missed it by " + previousCtr + " days."
+        }
         }
     }
 }
