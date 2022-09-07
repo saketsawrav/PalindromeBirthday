@@ -199,4 +199,23 @@ function checkPreviousDate(date) {
     }
 }
 
-console.log(checkPreviousDate({ day: 1, month: 3, year: 2022}))
+console.log(checkPreviousDate({ day: 1, month: 1, year: 2020}))
+
+function checkPreviousPalindromeDate (date) {
+    var ctr = 0;
+    var previousDate = checkPreviousDate(date);
+
+    while (1) {
+        ctr++;
+        var isPalindrome = checkPalindromeForAllDateFormats(previousDate);
+
+        if(isPalindrome){
+            break;
+        }
+        previousDate = checkPreviousDate(previousDate)
+    }
+
+    return [ctr, previousDate]
+}
+
+console.log(checkPreviousPalindromeDate(date))
