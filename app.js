@@ -219,3 +219,37 @@ function checkPreviousPalindromeDate (date) {
 }
 
 console.log(checkPreviousPalindromeDate(date))
+
+var birthDate = document.querySelector('#bday-date')
+var confirmBtn = document.querySelector('#confirm-btn')
+var outputBox = document.querySelector('#output-box')
+
+confirmBtn.addEventListener("click", buttonClickHandler)
+
+function buttonClickHandler() {
+    console.log("clicked")
+    console.log(birthDate)
+    outputBox.innerText = "Test runs fine" + birthDate.value
+    var bdayDate = birthDate.value
+    
+    if (bdayDate !== '') { // Takes care of empty string
+        var listOfDate = bdayDate.split('-') //remove the hyphens
+        console.log(listOfDate)
+
+        var date = { //convert listOfDate to Object with date containing day,month & year
+            day: listOfDate[2],
+            month: listOfDate[1],
+            year: listOfDate[0] 
+        }
+
+        console.log(date)
+        var bdayPalindromeDate = checkPalindromeForAllDateFormats(date)
+        
+        if (bdayPalindromeDate) {
+            outputBox.innerText = "Yay! your Birthday is a Palindrome!!"
+        } else {
+        var [ctr, nextBdayPalindromeDate] = checkNextPalindromeDate(date)
+        outputBox.innerText = "Sorry your Birthday is not a palindrome the next palindrome date is at " + nextBdayPalindromeDate.day + "-" + nextBdayPalindromeDate.month + "-" + nextBdayPalindromeDate.year + ", you missed it by " + ctr + " days."
+        }
+    }
+}
